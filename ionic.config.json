@@ -1,0 +1,10 @@
+{
+  "name": "deteksi-penyakit-gigi-blank",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}
