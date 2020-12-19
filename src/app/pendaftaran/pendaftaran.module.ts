@@ -8,12 +8,15 @@ import { PendaftaranPageRoutingModule } from './pendaftaran-routing.module';
 
 import { PendaftaranPage } from './pendaftaran.page';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PendaftaranPageRoutingModule
+    PendaftaranPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [PendaftaranPage]
 })

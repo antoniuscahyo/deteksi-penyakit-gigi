@@ -9,8 +9,34 @@
   </ion-toolbar>   
 </ion-header>
 
-<ion-content>
-  <div id="container">
-    <strong>Ini Halaman Pakar</strong>
+<ion-content fullscreen class="ion-padding">
+  <div>
+    <div class="ion-text-center">
+      <h5><b>PAKAR</b></h5>
+    </div>
+
+    <!-- pakar -->
+    <div id="konten-pakar" *ngIf="DataPakar">
+      <div *ngFor="let data of DataPakar">
+        <hr/>
+              <div class="absolute-center">
+                <img src="{{data.foto}}" style="width:250px;">
+              </div>
+
+              <div class="ion-text-center">
+                <h5><b>{{data.nama}}</b></h5>
+              </div>
+
+              <div class="ion-text-justify">
+                <p>Pekerjaan : {{data.pekerjaan}}</p>
+              </div>
+
+              <div class="ion-text-justify">
+                <p>Alamat : {{data.alamat}}</p>
+              </div>
+
+      </div>
+    </div>
+
   </div>
 </ion-content>

@@ -1,9 +1,56 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>informasi</ion-title>
-  </ion-toolbar>
+<ion-header>  
+  <ion-toolbar color="default">  
+    <ion-buttons slot="start">  
+      <ion-menu-button color="light"></ion-menu-button>   
+    </ion-buttons>  
+    <ion-title>  
+        Deteksi Penyakit Gigi
+    </ion-title>  
+  </ion-toolbar>   
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen class="ion-padding">
+  <div>
 
+    <div class="ion-text-center">
+      <h5><b>PENYAKIT GIGI</b></h5>
+    </div>
+
+    <div class="ion-text-justify">
+      <h6 style="padding-bottom: 15px;">Menurut Mulyani dan SM (2017) mengemukakan bahwa Gigi termasuk kedalam organ-organ tubuh yang ada pada wajah. 
+        Gigi adalah jaringan tubuh yang paling keras dibanding yang lainnya. Strukturnya berlapis-lapis mulai dari email yang sangat keras, 
+        dentin (tulang gigi) di dalamnya, pulpa yang berisi pembuluh darah, pembuluh saraf, dan bagian lainnya yang memperkokoh gigi.</h6>
+    </div>
+
+    <div id="konten-informasi" *ngIf="Informasi_Penyakit">
+
+      <div *ngFor="let data of Informasi_Penyakit">
+        <hr/>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <div class="absolute-center">
+                <img src="{{data.foto}}" style="width:100px;">
+              </div>
+            </ion-col>
+            <ion-col col-8>
+
+              <div class="ion-text-justify">
+                <h5>{{data.nama}}</h5>
+              </div>
+
+              <div class="ion-text-justify">
+                <p style="font-size:10px;">{{data.definisi}}</p>
+              </div>
+
+              <ion-button expand="block" onclick="Detail()" class="custom-button">Detail</ion-button>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+    </div>
+  
+  </div>
 </ion-content>

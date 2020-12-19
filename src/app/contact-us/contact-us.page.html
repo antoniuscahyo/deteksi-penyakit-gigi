@@ -9,8 +9,25 @@
   </ion-toolbar>   
 </ion-header>
 
-<ion-content>
-  <div id="container">
-    <strong>Ini Halaman Contact Us</strong>
+<ion-content fullscreen class="ion-padding">
+  <div>
+
+    <div class="ion-text-center">
+      <h5><b>CONTACT US</b></h5>
+      <img src="assets/images/logo_kusuma.png" style="width:200px;">
+    </div>
+
+    <div class="ion-text-justify">
+      <h6>Hubungi kami untuk menjawab pertanyaan Anda atau datang langsung ke Klinik Kusuma Dental.
+        Berikut adalah cabang-cabang Kilnik Kusuma Dental Care, yaitu: 
+        </h6>
+    </div>
+
+    <ion-grid *ngIf="Data_Cabang">
+      <ion-row *ngFor="let data of Data_Cabang">
+        <p>{{data.kd_cabang_klinik}} : {{data.alamat_cabang_klinik}} <br>CP. WhatsApp: {{data.no_wa_cabang_klinik}}</p>
+      </ion-row>
+    </ion-grid>
+  
   </div>
 </ion-content>

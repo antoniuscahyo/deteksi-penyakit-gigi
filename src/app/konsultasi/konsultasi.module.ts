@@ -8,12 +8,15 @@ import { KonsultasiPageRoutingModule } from './konsultasi-routing.module';
 
 import { KonsultasiPage } from './konsultasi.page';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    KonsultasiPageRoutingModule
+    KonsultasiPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [KonsultasiPage]
 })
