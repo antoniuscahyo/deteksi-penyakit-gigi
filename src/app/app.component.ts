@@ -31,7 +31,7 @@ export class AppComponent {
       { 
       title : 'Beranda',
       url   : '/home',
-      icon  : 'home' 
+      icon  : 'home'
       },
       { 
       title : 'Informasi',

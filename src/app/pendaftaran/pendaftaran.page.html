@@ -1,12 +1,12 @@
 <ion-header>  
-  <ion-toolbar color="default">  
+  <ion-toolbar color="default-tint">  
     <ion-buttons slot="start">  
-      <ion-menu-button color="light"></ion-menu-button>   
+      <ion-menu-button color="dark"></ion-menu-button>   
     </ion-buttons>  
     <ion-title>  
-       Deteksi Penyakit Gigi
-    </ion-title>  
-  </ion-toolbar>   
+      <img src="assets/images/logo_kecil_hitam.png" style="width:200px;"> 
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
@@ -16,8 +16,55 @@
 
   <hr/>
   <form [formGroup]="FormRegister">
+
+    <!-- Field Nama Lengkap -->
     <ion-item>
-      <ion-label color="primary" position="floating">Username</ion-label>
+      <ion-label position="floating">Nama Lengkap</ion-label>
+      <ion-input type="text" name="NamaLengkap" formControlName="NamaLengkap"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <ng-container *ngFor="let validation of validations.NamaLengkap">
+        <div class="error-message" *ngIf="FormRegister.get('NamaLengkap').hasError(validation.type) && (FormRegister.get('NamaLengkap').dirty || FormRegister.get('NamaLengkap').touched)">
+          <span>{{ validation.message }}</span>
+          <br><br>
+        </div>
+      </ng-container>
+    </div>
+    <!-- Field Nama Lengkap -->
+
+    <!-- Field Email -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" name="Email" formControlName="Email"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <ng-container *ngFor="let validation of validations.Email">
+        <div class="error-message" *ngIf="FormRegister.get('Email').hasError(validation.type) && (FormRegister.get('Email').dirty || FormRegister.get('Email').touched)">
+          <span>{{ validation.message }}</span>
+          <br><br>
+        </div>
+      </ng-container>
+    </div>
+    <!-- Field Email -->
+
+    <!-- Field No HP -->
+    <ion-item>
+      <ion-label position="floating">No. Hp</ion-label>
+      <ion-input type="text" name="NoHp" formControlName="NoHp"></ion-input>
+    </ion-item>
+    <div class="error-container">
+      <ng-container *ngFor="let validation of validations.NoHp">
+        <div class="error-message" *ngIf="FormRegister.get('NoHp').hasError(validation.type) && (FormRegister.get('NoHp').dirty || FormRegister.get('NoHp').touched)">
+          <span>{{ validation.message }}</span>
+          <br><br>
+        </div>
+      </ng-container>
+    </div>
+    <!-- Field No HP -->
+
+    <!-- Field Username -->
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
       <ion-input type="text" name="Username" formControlName="Username"></ion-input>
     </ion-item>
     <div class="error-container">
@@ -28,9 +75,11 @@
         </div>
       </ng-container>
     </div>
+    <!-- Field Username -->
 
+    <!-- Field Password -->
     <ion-item>
-      <ion-label color="primary" position="floating">Password</ion-label>
+      <ion-label position="floating">Password</ion-label>
       <ion-input  type="text" name="Password" formControlName="Password" *ngIf="showPasswordText" ></ion-input>
       <ion-input type="password" name="Password" formControlName="Password" *ngIf="!showPasswordText" ></ion-input>      
       <ion-icon color="dark" slot="icon-only" (click)="showPasswordText = !showPasswordText" *ngIf="showPasswordText" name="eye"  slot="end" class="ion-align-self-center"></ion-icon>
@@ -44,46 +93,54 @@
         </div>
       </ng-container>
     </div>
-    
+    <!-- Field Password -->
+
+    <!-- Field Jenis Kelamin -->
     <ion-item>
-      <ion-label color="primary" position="floating">Nama Lengkap</ion-label>
-      <ion-input type="text" name="NamaLengkap" formControlName="NamaLengkap"></ion-input>
+      <ion-label position="floating">Jenis Kelamin</ion-label>
+        <ion-select value="" name="JenisKelamin" formControlName="JenisKelamin">
+        <ion-select-option value="Laki-laki">Laki-laki</ion-select-option>
+        <ion-select-option value="Perempuan">Perempuan</ion-select-option>
+      </ion-select>
     </ion-item>
-    <div class="error-container">
-      <ng-container *ngFor="let validation of validations.NamaLengkap">
-        <div class="error-message" *ngIf="FormRegister.get('NamaLengkap').hasError(validation.type) && (FormRegister.get('NamaLengkap').dirty || FormRegister.get('NamaLengkap').touched)">
-          <span>{{ validation.message }}</span>
-          <br><br>
-        </div>
-      </ng-container>
-    </div>
-  
+    <!-- Field Jenis Kelamin -->
+
+    <!-- Field Tempat Lahir -->
     <ion-item>
-      <ion-label color="primary" position="floating">Email</ion-label>
-      <ion-input type="email" name="Email" formControlName="Email"></ion-input>
+      <ion-label position="floating">Tempat Lahir</ion-label>
+      <ion-input type="text" name="TempatLahir" formControlName="TempatLahir"></ion-input>
     </ion-item>
-    <div class="error-container">
-      <ng-container *ngFor="let validation of validations.Email">
-        <div class="error-message" *ngIf="FormRegister.get('Email').hasError(validation.type) && (FormRegister.get('Email').dirty || FormRegister.get('Email').touched)">
-          <span>{{ validation.message }}</span>
-          <br><br>
-        </div>
-      </ng-container>
-    </div>
+    <!-- Field Tempat Lahir -->
+
+    <!-- Field Tanggal Lahir -->
+    <ion-item>
+      <ion-label position="floating">Tanggal Lahir</ion-label>
+      <ion-datetime display-format="DD-MM-YYYY" picker-format="DD-MM-YYYY" placeholder="Pilih Tanggal" formControlName="TanggalLahir"></ion-datetime>
+    </ion-item>
+    <!-- Field Tanggal Lahir -->
+
+    <!-- Field Pekerjaan -->
+    <ion-item>
+      <ion-label position="floating">Pekerjaan</ion-label>
+      <ion-input type="text" name="Pekerjaan" formControlName="Pekerjaan"></ion-input>
+    </ion-item>
+    <!-- Field Pekerjaan -->
+
+    <!-- Field Alamat -->
+    <ion-item>
+      <ion-label position="floating">Alamat</ion-label>
+      <ion-textarea type="text" name="Alamat" formControlName="Alamat"></ion-textarea>
+    </ion-item>
+    <!-- Field Alamat -->
 
     <ion-item>
-      <ion-label color="primary" position="floating">No. Hp</ion-label>
-      <ion-input type="text" name="NoHp" formControlName="NoHp"></ion-input>
+      <ion-label position="stacked">Foto Profile</ion-label>
+      <ion-button color="primary" (click)="OpenGalery()">Pilih File</ion-button>
     </ion-item>
-    <div class="error-container">
-      <ng-container *ngFor="let validation of validations.NoHp">
-        <div class="error-message" *ngIf="FormRegister.get('NoHp').hasError(validation.type) && (FormRegister.get('NoHp').dirty || FormRegister.get('NoHp').touched)">
-          <span>{{ validation.message }}</span>
-          <br><br>
-        </div>
-      </ng-container>
-    </div><br>
     
-      <ion-button expand="full" color="default" (click)="Register()" [disabled]="!FormRegister.valid">Simpan</ion-button>
+    <hr/>
+
+    <ion-button color="primary" (click)="Register()" [disabled]="!FormRegister.valid">Simpan</ion-button>
+
   </form>
 </ion-content>

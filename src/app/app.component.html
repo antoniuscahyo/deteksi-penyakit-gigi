@@ -2,11 +2,11 @@
   <ion-menu side="start" menuId="first" contentId="content" class="custom">  
     <ion-header>  
       <ion-toolbar color="default">  
-        <img alt="logo-aplikasi" height="100" src="assets/icon/logo_default.png" style="padding-left: 40%;">
+        <img alt="logo-aplikasi" height="100" src="assets/images/logo_default_putih.png" class="absolute-center">
         <!-- <ion-title>Menu Utama</ion-title>   -->
       </ion-toolbar>   
     </ion-header>  
-    <ion-content color="light">  
+    <ion-content color="light" >  
       <ion-list *ngFor="let pages of navigate">  
         <ion-menu-toggle auto-hide="true">  
           <ion-item [routerLink]="pages.url" routerDirection="forward">  

@@ -40,6 +40,8 @@ export class PendaftaranPage implements OnInit {
 
   FormRegister: FormGroup;
   ResponseRegister:any;
+  Email;
+  Username;
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -71,7 +73,12 @@ export class PendaftaranPage implements OnInit {
         Validators.required,
         Validators.minLength(10), 
         Validators.maxLength(15) 
-      ]))
+      ])),
+      JenisKelamin:new FormControl('', Validators.compose([Validators.required])),
+      TempatLahir:new FormControl('', Validators.compose([Validators.required])),
+      TanggalLahir:new FormControl('', Validators.compose([Validators.required])),
+      Pekerjaan:new FormControl('', Validators.compose([Validators.required])),
+      Alamat:new FormControl('', Validators.compose([Validators.required]))
     });
   }
 
@@ -82,21 +89,23 @@ export class PendaftaranPage implements OnInit {
     });
     await loading.present(); 
     //panggil fungsi register di service
-    this.serviceService.RegisterApi(this.FormRegister.value,'register').subscribe(
+    this.serviceService.RegisterApi(this.FormRegister.value,'pendaftaran').subscribe(
       data => {
         this.ResponseRegister=data;
         //cek apakah register berhasil atau tidak
-        if(this.ResponseRegister.status=="error"){       
+        if(this.ResponseRegister.status=="success"){    
+          loading.dismiss();
+          this.presentToast("Pendaftaran berhasil.");
+        }else{
           this.AlertRegister("Pendaftaran user tidak berhasil, silahkan coba lagi.");       
           loading.dismiss();
-        }else{
-           loading.dismiss();
-          this.modalController.dismiss();
+          // this.modalController.dismiss();
         }
         loading.dismiss();
       },
       error => {
         loading.dismiss();
+        this.AlertRegister("Sedang Perbaikan.");
       }
     );
   }
@@ -113,6 +122,15 @@ export class PendaftaranPage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+  }
+
+  async presentToast(Message) {
+    const toast = await this.toastController.create({
+      message: Message,
+      duration: 4000,
+      position: 'top'
+    });
+    toast.present();
   }
 
 }

@@ -9,6 +9,7 @@ import { Platform, ToastController } from '@ionic/angular';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
 const apiUrl = "http://desyartasari.com/APIService";
 
 @Injectable({
@@ -37,7 +38,19 @@ export class AuthServiceService {
 
   //register
   RegisterApi(credentials, type){    
-    return this.http.get(`${apiUrl}/${type}`);
+    let postdata = new FormData;
+    postdata.append('nama_lengkap', credentials.NamaLengkap);
+    postdata.append('email', credentials.Email);
+    postdata.append('no_hp', credentials.NoHp);
+    postdata.append('username', credentials.Username);
+    postdata.append('password', credentials.Password);
+    postdata.append('jenis_kelamin', credentials.JenisKelamin);
+    postdata.append('tempat_lahir', credentials.TempatLahir);
+    postdata.append('tanggal_lahir', credentials.TanggalLahir);
+    postdata.append('pekerjaan', credentials.Pekerjaan);
+    postdata.append('alamat', credentials.Alamat);
+
+    return this.http.post(`${apiUrl}/${type}`,postdata);
   }
 
   //logout

@@ -1,3 +1,9 @@
 .custom {
-    --width: 50%;
+    --width: 70%;
+}
+
+.absolute-center {
+    display: flex !important;
+    padding: 4%;
+    margin: auto;
 }
