@@ -95,9 +95,10 @@ export class PendaftaranPage implements OnInit {
         //cek apakah register berhasil atau tidak
         if(this.ResponseRegister.status=="success"){    
           loading.dismiss();
-          this.presentToast("Pendaftaran berhasil.");
+          this.presentToast(this.ResponseRegister.informasi);
+          this.FormRegister.reset();
         }else{
-          this.AlertRegister("Pendaftaran user tidak berhasil, silahkan coba lagi.");       
+          this.AlertRegister(this.ResponseRegister.informasi);       
           loading.dismiss();
           // this.modalController.dismiss();
         }

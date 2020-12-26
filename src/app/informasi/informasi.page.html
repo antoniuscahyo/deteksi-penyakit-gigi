@@ -1,5 +1,5 @@
 <ion-header>  
-  <ion-toolbar color="default">  
+  <ion-toolbar color="light">  
     <ion-buttons slot="start">  
       <ion-menu-button color="dark"></ion-menu-button>   
     </ion-buttons>  
@@ -30,7 +30,7 @@
           <ion-row>
             <ion-col col-4>
               <div class="absolute-center">
-                <img src="{{data.foto}}" style="width:100px;">
+                <img src="{{data.foto}}" style="width:100%;">
               </div>
             </ion-col>
             <ion-col col-8>
@@ -43,7 +43,7 @@
                 <p style="font-size:10px;">{{data.definisi}}</p>
               </div>
 
-              <ion-button expand="block" onclick="Detail()" class="custom-button">Detail</ion-button>
+              <ion-button expand="block" (click)="DetailPenyakit(data.id)" class="custom-button">Detail</ion-button>
 
             </ion-col>
           </ion-row>

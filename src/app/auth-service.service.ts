@@ -28,6 +28,10 @@ export class AuthServiceService {
     return this.http.get(`${apiUrl}/${type}`);
   }
 
+  Get_Data_Post(credentials,type) {
+    return this.http.post(`${apiUrl}/${type}`,credentials);
+  }
+
   Post_Data(type,credentials): Observable<any>{
     return this.http.post(`${apiUrl}/${type}`,credentials,httpOptions);
   }

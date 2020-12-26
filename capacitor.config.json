@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "deteksi-penyakit-gigi-blank",
+  "appId": "desy.diagnosapenyakitgigi.app",
+  "appName": "Diagnosa Penyakit Gigi",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

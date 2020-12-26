@@ -1,5 +1,5 @@
 <ion-header>  
-  <ion-toolbar color="default-tint">  
+  <ion-toolbar color="light">  
     <ion-buttons slot="start">  
       <ion-menu-button color="dark"></ion-menu-button>   
     </ion-buttons>  
@@ -133,14 +133,11 @@
     </ion-item>
     <!-- Field Alamat -->
 
-    <ion-item>
-      <ion-label position="stacked">Foto Profile</ion-label>
-      <ion-button color="primary" (click)="OpenGalery()">Pilih File</ion-button>
-    </ion-item>
+    <ion-button color="primary" (click)="OpenGalery()"><ion-icon name="image"></ion-icon>&nbsp;Upload Foto Profile</ion-button>
     
     <hr/>
 
-    <ion-button color="primary" (click)="Register()" [disabled]="!FormRegister.valid">Simpan</ion-button>
+    <ion-button color="success" (click)="Register()" [disabled]="!FormRegister.valid"><ion-icon name="checkbox"></ion-icon>&nbsp;Simpan</ion-button>
 
   </form>
 </ion-content>

@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'informasi',
     loadChildren: () => import('./informasi/informasi.module').then( m => m.InformasiPageModule)
   },
+  {
+    path: 'detail-penyakit',
+    loadChildren: () => import('./detail-penyakit/detail-penyakit.module').then( m => m.DetailPenyakitPageModule)
+  },
 ];
 
 @NgModule({

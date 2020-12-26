@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from './../../app/auth-service.service';
 import { LoadingController } from '@ionic/angular';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-informasi',
@@ -11,7 +12,12 @@ export class InformasiPage implements OnInit {
 
   ResponseData:any;
   Informasi_Penyakit:any;
-  constructor(public api: AuthServiceService,public loadingController: LoadingController) { }
+  navigate: any;
+  constructor(
+    public api: AuthServiceService,
+    public loadingController: LoadingController,
+    public router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -40,6 +46,16 @@ export class InformasiPage implements OnInit {
         console.log(err);
         loading.dismiss();
       });
+  }
+
+  DetailPenyakit(id){
+    console.log(id);
+    let navigationExtras : NavigationExtras = {
+      queryParams : {
+        id : id
+      }
+    }
+    this.router.navigate(['detail-penyakit'],navigationExtras);
   }
 
 }

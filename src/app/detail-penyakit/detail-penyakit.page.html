@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="informasi"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Diagnosa Penyakit Gigi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="ion-padding">
+  <div id='for-looping' *ngIf="DetailPenyakit">
+  <div *ngFor="let data of DetailPenyakit">
+
+    <div class="ion-text-center">
+      <h5>{{data.nama_penyakit}}</h5>
+    </div>
+
+    <hr/>
+
+    <div class="absolute-center">
+      <img src="{{data.foto_penyakit}}" style="width:300px;" >
+    </div>
+
+    <ion-grid>
+        <p><b>Definisi : </b></p>
+        <div>
+          <ion-label class="ion-text-wrap">
+          {{data.definisi}}
+        </ion-label>
+        </div>
+    </ion-grid>
+    <br>
+    <ion-grid>
+      <p><b>Solusi : </b></p>
+      <div>
+        <ion-label class="ion-text-wrap">
+          {{data.solusi}}
+        </ion-label>
+      </div>
+    </ion-grid>
+    <br>
+    <ion-grid>
+      <p><b>Pencegahan : </b></p>
+      <div>
+        <ion-label class="ion-text-wrap">
+          {{data.pencegahan}}
+        </ion-label>
+      </div>
+    </ion-grid>
+  
+  </div>
+  </div>
+</ion-content>
