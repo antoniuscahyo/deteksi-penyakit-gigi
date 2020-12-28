@@ -1,20 +1,16 @@
-ion-list{
-    background-color: transparent;
-    padding: 0;
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1px;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-ion-row {
-    align-items: center;
-    text-align: center;
-    }
-ion-item {
-    border-radius: 10px !important;
-    font-size: 0.9em;
-    margin-bottom: 15px;
-    border: 1px solid rgba(34, 34, 34, 0.096);
-    border-bottom: 0px !important;
-    
-    background-color: #ffffff;
-    -webkit-box-shadow: 4px 8px 6px -6px #222;
-    -moz-box-shadow: 4px 8px 6px -6px #222;
-    box-shadow: 4px 4px 6px -6px #222;
+
+section {
+    margin-top: 1em;
+    margin-bottom: 2.5em;
+}
+
+section:not(.full-width),
+  .full-width > header {
+    padding: 0 10px;
 }
