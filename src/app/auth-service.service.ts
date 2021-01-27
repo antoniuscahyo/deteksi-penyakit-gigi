@@ -10,8 +10,8 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const apiUrl = "http://desyartasari.com/APIService";
-const apiUrlAuthLogin = "http://desyartasari.com/SlimRestJWT/public";
+const apiUrl = "http://diagnosapenyakitgigi.desyartasari.com/APIService";
+const apiUrlAuthLogin = "http://diagnosapenyakitgigi.desyartasari.com/SlimRestJWT/public";
 
 @Injectable({
   providedIn: 'root'

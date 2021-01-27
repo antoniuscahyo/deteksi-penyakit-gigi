@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { NavController, LoadingController, ToastController, Platform, ModalController, AlertController } from '@ionic/angular';
 import { AuthServiceService } from './../../app/auth-service.service';
+import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { AuthServiceService } from './../../app/auth-service.service';
   styleUrls: ['./pendaftaran.page.scss'],
 })
 export class PendaftaranPage implements OnInit {
+  base64Image;
+  picture;
 
   showPasswordText:any;
   showKonfirmPasswordText:any;
@@ -51,7 +54,8 @@ export class PendaftaranPage implements OnInit {
     public toastController: ToastController,
     public alertController: AlertController,
     public modalController: ModalController,
-    private serviceService: AuthServiceService
+    private serviceService: AuthServiceService,
+    private camera: Camera,
   ) { }
 
   ngOnInit() {
@@ -133,5 +137,40 @@ export class PendaftaranPage implements OnInit {
     });
     toast.present();
   }
+  
+
+  AccessCamera(){
+    this.camera.getPicture({
+    targetWidth:512,
+    targetHeight:512,
+    correctOrientation:true,
+    sourceType: this.camera.PictureSourceType.CAMERA,
+    destinationType: this.camera.DestinationType.DATA_URL
+      }).then((imageData) => {
+        this.base64Image = 'data:image/jpeg;base64,'+imageData;
+   
+        this.picture = imageData;
+   
+            }, (err) => {
+   
+        console.log(err);
+   
+      });
+   
+   }
+   
+  AccessGallery(){
+    this.camera.getPicture({
+        sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+        destinationType: this.camera.DestinationType.DATA_URL
+    }).then((imageData) => {
+        this.base64Image = 'data:image/jpeg;base64,'+imageData;
+        this.picture = imageData;
+           }, (err) => {
+        console.log(err);
+    });
+  }
+   
+   
 
 }

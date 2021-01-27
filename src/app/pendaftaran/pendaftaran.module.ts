@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     IonicModule,
     PendaftaranPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [PendaftaranPage]
 })
